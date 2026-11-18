@@ -1,0 +1,8 @@
+# Main analysis, figure data, synthetic check, figures, label agreement.
+# Versions of the environment used for the reported results (Python 3.12.3).
+numpy==2.5.4
+pandas==3.1.1
+pyarrow==26.0.1
+scipy==1.18.1
+statsmodels==0.15.0
+matplotlib==3.11.2

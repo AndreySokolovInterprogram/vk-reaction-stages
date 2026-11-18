@@ -1,0 +1,16 @@
+# Media feature pipeline (embeddings and VLM labels; CUDA GPU required). Python 3.12.3.
+# Install into a separate environment; requirements.txt is not needed on top.
+numpy==2.5.2
+pandas==3.0.5
+pyarrow==25.0.1
+scipy==1.18.1
+statsmodels==0.15.0
+pillow==12.3.0
+av==15.0.0
+torch==2.13.0
+torchvision==0.28.0
+transformers==5.16.1
+accelerate==1.14.0
+bitsandbytes==0.50.2
+huggingface_hub==1.29.0
+sentence-transformers==6.0.0
