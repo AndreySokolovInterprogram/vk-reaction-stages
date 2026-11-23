@@ -49,6 +49,8 @@ CONCEPTS = {
     "text_overlay": "large text is placed on the image (title, caption, meme text); small watermarks do not count",
     "number_in_title": ("1 only if the first line contains digits 0-9; numbers written as words do not count; "
                         "if there is no first line, 0"),
+    # Russian question words below (unicode escapes): who, what, how, why, what for, where, when, how many, which,
+    # "is it possible", "do you know". English translation of all prompts: media_features/PROMPTS.md.
     "question_in_title": ("1 only if the first line contains a question mark \"?\" or is explicitly a question starting "
                           "with a question word (\u043a\u0442\u043e, \u0447\u0442\u043e, \u043a\u0430\u043a, \u043f\u043e\u0447\u0435\u043c\u0443, \u0437\u0430\u0447\u0435\u043c, \u0433\u0434\u0435, \u043a\u043e\u0433\u0434\u0430, \u0441\u043a\u043e\u043b\u044c\u043a\u043e, \u043a\u0430\u043a\u043e\u0439, \u043c\u043e\u0436\u043d\u043e \u043b\u0438, "
                           "\u0437\u043d\u0430\u0435\u0442\u0435 \u043b\u0438); statements and calls to action are 0; if there is no first line, 0"),

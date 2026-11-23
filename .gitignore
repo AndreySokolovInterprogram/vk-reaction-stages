@@ -9,3 +9,4 @@ figures/out/
 media_features/work/
 *.parquet
 *.npy
+youtube/out/

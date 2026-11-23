@@ -3,7 +3,7 @@
 Code and aggregated data for the paper
 
 > A. Sokolov, A. S. Shutkin, E. Isaeva, A. L. Beklaryan, A. A. Sokolov, S. V. Rusakov.
-> **From likes to reposts and new users: identifying the stages at which content features act from aggregated counters.**
+> **From likes to reposts: identifying stage-specific content effects from aggregate counts.**
 > Submitted to *IEEE Access*, 2026.
 
 The paper proposes a multistage model of the reaction to a view (attention → consumption → evaluation → action), in which reposts, likes and comments share the early stages and differ in motive and evaluation. A content feature that acts on the shared stages shifts the shares of all three reactions equally; a feature that acts on the sharing motive shifts only the repost-to-like ratio. The repository contains the analysis of a stratified VK panel (310 communities, 166,523 posts, 10 thematic strata), the multimodal feature pipeline, the synthetic identifiability check, and scripts that redraw every figure from the aggregated data in `data/`.
@@ -16,6 +16,7 @@ The paper proposes a multistage model of the reaction to a view (attention → c
 | `media_features/` | Feed features of posts: input table, image/first-line embeddings (Qwen3-VL-Embedding-2B), VLM labels of 16 concepts (Qwen3-VL-4B-Instruct, 4-bit), text rules, mixed models, invariance across strata, leave-one-stratum-out transfer, agreement with blinded expert labels |
 | `synthetic/` | Synthetic identifiability check of the multistage model (Fisher information and maximum likelihood on simulated counters) |
 | `figdata/` | Builds the aggregated tables for Figs. 5–6 from the panel export |
+| `youtube/` | YouTube cross-sectional comparison (Secs. IV-D, VI-F): `run_analysis.py`, its input schema and output `key_numbers_youtube.txt` (see `youtube/README.md`) |
 | `figures/` | One script per figure (`make_sokolN_*.py`), shared style (`common_style.py`), `make_all.sh`; the figures in the paper are the output of `figures/make_all.sh` |
 | `collection/` | Measurement schedule of the panel (`schedule.py`, standalone excerpt of the collector) with a test/example (`test_schedule.py`) |
 | `data/` | Aggregated, de-identified data needed to redraw the figures (see below) |
@@ -42,7 +43,7 @@ Paths to the raw data are not hard-coded. Copy `config.example.env` to `config.e
 ./figures/make_all.sh          # → figures/out/sokol1_system.pdf … sokol8_invariance.pdf (+ PNG, 600 dpi)
 ```
 
-The figures in the paper (Figs. 1–8) are exactly the output of `figures/make_all.sh`.
+The figures in the paper (Figs. 1–8) are exactly the output of `figures/make_all.sh` (pixel-identical PNG with the package versions of `requirements.txt`).
 
 **Synthetic identifiability check (no input data; ~1 min on a CPU):**
 
@@ -80,15 +81,17 @@ Step 6 reads the NB2 dispersion parameters produced by step 1; step 8 needs the 
 | Fig. 5 — within-community scatter of log shares (R–L, C–L) | `analysis/30_pools.py`, `analysis/31_step3_descriptive.py` → `figdata/make_figdata.py` → `figures/make_sokol5_shares.py` | `data/figdata_shares_posts.csv`, `data/check_spearman.csv` |
 | Fig. 6 — accumulation of counters over 72 h | `analysis/31_step3_descriptive.py` (step 3.3) → `figdata/make_figdata.py` → `figures/make_sokol6_accumulation.py` | `data/figdata_accumulation.csv` |
 | Fig. 7 — feature effects on log ρ_R, log ρ_L, log(ρ_R/ρ_L) | `media_features/analysis_media.py` → `figures/make_sokol7_effects.py` | `data/effects_confirm_main_mixed.csv` |
-| Fig. 8 — invariance across thematic strata | `media_features/analysis_media.py` → `figures/make_sokol8_invariance.py` | `data/effects_confirm_by_stratum.csv`, `data/effects_confirm_heterogeneity_tau.csv` |
-| Table 2 — effects of confirmatory features (with τ) | `media_features/analysis_media.py` | `data/effects_confirm_main_mixed.csv`, `data/effects_confirm_heterogeneity_tau.csv` |
-| Table 3 — leave-one-stratum-out transfer | `media_features/analysis_media.py` | `data/table3_confirm_transfer_summary.csv` |
+| Fig. 8 — between-stratum variation of the effects on log(ρ_R/ρ_L) | `media_features/analysis_media.py` → `figures/make_sokol8_invariance.py` | `data/effects_confirm_by_stratum.csv`, `data/effects_confirm_heterogeneity_tau.csv` |
+| Table I — effects of confirmatory features (with τ) | `media_features/analysis_media.py` | `data/effects_confirm_main_mixed.csv`, `data/effects_confirm_heterogeneity_tau.csv` |
+| Table II — leave-one-stratum-out transfer | `media_features/analysis_media.py` | `data/table3_confirm_transfer_summary.csv` |
 | Sec. IV — panel description, pools, exclusions | `analysis/10_*`–`35_*`, `analysis/40_key_numbers.py` | — |
 | Sec. V-A — NB2 regressions, overdispersion α, log-exposure coefficient | `analysis/32_step3_5_negbin.py` | — |
 | Sec. V-E — synthetic identifiability | `synthetic/model.py`, `synthetic/run1.py`–`run6_real_alpha.py` | generated |
 | Sec. IV — measurement schedule of the panel | `collection/schedule.py`, `collection/test_schedule.py` | — |
 
-Section numbers follow the submitted manuscript. The code for the YouTube part (Sec. VI-F) will be added to this repository later.
+| Secs. IV-D, VI-F — YouTube panel: channel funnel, NB2 elasticities and α, Shorts comment rate, within-channel correlation | `youtube/run_analysis.py` | `youtube/key_numbers_youtube.txt` |
+
+Section numbers follow the submitted manuscript. English translations of the VLM prompts (the model input keeps the original strings): `media_features/PROMPTS.md`.
 
 ## Data collection protocol (VK panel)
 

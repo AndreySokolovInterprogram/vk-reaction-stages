@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this code, please cite the paper (submitted to IEEE Access)."
-title: "vk-reaction-stages: code and aggregated data for 'From likes to reposts and new users'"
+title: "vk-reaction-stages: code and aggregated data for 'From likes to reposts'"
 type: software
 license: MIT
 version: "1.0-submission"
@@ -9,7 +9,7 @@ authors:
     given-names: Andrei
     orcid: "https://orcid.org/0009-0005-3195-1655"
   - family-names: Shutkin
-    given-names: Aleksei S.
+    given-names: Alexey S.
     orcid: "https://orcid.org/0009-0007-7473-4508"
   - family-names: Isaeva
     given-names: Ekaterina
@@ -25,7 +25,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-6862-1100"
 preferred-citation:
   type: article
-  title: "From likes to reposts and new users: identifying the stages at which content features act from aggregated counters"
+  title: "From likes to reposts: identifying stage-specific content effects from aggregate counts"
   journal: "IEEE Access"
   status: submitted
   year: 2026
@@ -33,7 +33,7 @@ preferred-citation:
     - family-names: Sokolov
       given-names: Andrei
     - family-names: Shutkin
-      given-names: Aleksei S.
+      given-names: Alexey S.
     - family-names: Isaeva
       given-names: Ekaterina
     - family-names: Beklaryan

@@ -28,8 +28,8 @@ box(ax, 10, 617, 584, 791, fc=BOXFILL, ec="none", lw=0, r=20)
 ax.text(40, 640, "YouTube (Sec. VI-F):\n180 channels,\n12,418 videos", ha="left", va="top", fontsize=B, color=INK,
         linespacing=1.15, transform=ax.transData)
 box(ax, 669, 617, 2566, 791, fc=BOXFILL, ec="none", lw=0, r=20)
-ax.text(701, 701, "Synthetic identifiability (Sec. V-E), N = 10,000 posts:\nT and O merged; detection floor for "
-        "τ ≈ 0.1 logit", ha="left", va="center", fontsize=B, color=INK, linespacing=1.15)
+ax.text(701, 701, "Synthetic identifiability (Sec. V-E), N = 10,000 posts:\nfeature effects recoverable; T and O merged",
+        ha="left", va="center", fontsize=B, color=INK, linespacing=1.15)
 arrow(ax, [(584, 704), (627, 704), (627, 568), (1407, 568), (1407, 462)], dashed=True, lw=1.0)
 arrow(ax, [(1618, 617), (1618, 462)], dashed=True, lw=1.0)
 arrow(ax, [(2279, 617), (2279, 462)], dashed=True, lw=1.0)

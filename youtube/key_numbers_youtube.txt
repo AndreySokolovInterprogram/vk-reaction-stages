@@ -1,0 +1,10 @@
+backfill videos (published before 2026-11-12): 14075
+channel funnel: YT_CHANNELS_FILE / YT_POSTS_FILE not given; last two steps only
+channels with a backfill video (backfill file): 184
+channels in the analytical sample (age >= 168 h, views >= 100): 180
+analytical sample: 12418 videos, 180 channels, 6626 Shorts
+comments disabled: 418 videos; comment sample 12000
+elasticity w.r.t. views (free coefficient): likes 1.011, comments 0.872
+NB2 overdispersion alpha (offset models): likes 0.3336, comments 0.8242
+Shorts vs standard videos, comments per view (2A_nodur, no duration): IRR 0.563 [0.413, 0.767], p = 0.0003, difference -43.7%
+within-channel Spearman correlation, log like vs log comment rate: 0.2898 (n = 11134, groups = 251)
